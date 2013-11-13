@@ -18,7 +18,8 @@ class python {
 
   package { 'boxen/brews/python':
     ensure  => $version,
-    require => Class['xquartz']
+    install_options => ['--build-from-source'],
+    require => [ Class['xquartz'], File['/opt/boxen/homebrew/Library/ENV/4.3/cc'] ],
   }
 
   file {
