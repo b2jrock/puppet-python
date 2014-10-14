@@ -17,8 +17,9 @@ class python {
   }
 
   package { 'boxen/brews/python':
-    ensure  => $version,
-    require => Class['xquartz']
+    ensure          => $version,
+    install_options => ['--build-from-source'],
+    require         => Class['xquartz']
   }
 
   boxen::env_script { 'python':
